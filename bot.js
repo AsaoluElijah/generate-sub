@@ -106,5 +106,6 @@ const streamTweets = async (tweetsFrom) => {
   });
 };
 
-streamTweets("@generate_sub");
+module.exports = streamTweets;
+// streamTweets("@generate_sub");
 // sendVideoTweet("1508152780661342216", "./temp/output.mp4");

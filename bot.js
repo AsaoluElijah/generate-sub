@@ -106,8 +106,12 @@ const streamTweets = async (tweetsFrom) => {
     });
   } catch (error) {
     console.log(`Error code: ${error.code}\nError: ${error.error}`);
-    // reconnect
-    // streamTweets(tweetsFrom);
+
+    // error is mostly caused by twitter exceeded connection limit.
+    // reconnect after 15min
+    setTimeout(() => {
+      streamTweets(tweetsFrom);
+    }, 1000 * 60 * 15);
   }
 };
 

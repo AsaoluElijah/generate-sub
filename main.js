@@ -58,10 +58,9 @@ function convertToAudio(videoInput) {
 
 async function addSubToVideo(videoInput, srtInput, vidOutputPath) {
   console.log("Adding subtitle to original video file...");
-
   return new Promise((resolve, reject) => {
     ffmpeg(videoInput)
-      .outputOptions(`-vf subtitles=${srtInput}:force_style='Fontsize=24'`)
+      .outputOptions(`-vf subtitles=${srtInput}:force_style='Fontsize=18'`)
       .save(vidOutputPath)
       .on("error", (err) => {
         reject(err);

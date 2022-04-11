@@ -29,29 +29,33 @@ const translateTranscript = async (srtTranscript, outputLanguage) => {
   const languageCode = getLanguageCode(outputLanguage);
 
   if (languageCode !== "not found") {
-    const res = await translate(srtTranscript, { to: languageCode });
+    try {
+      const res = await translate(srtTranscript, { to: languageCode });
 
-    // Format the transcript to a valid subtitle format
-    let translatedTranscript = res.text;
-    translatedTranscript = translatedTranscript
-      .replace(/^ +/gm, "")
-      .replace(/\:\s/g, ":");
+      // Format the transcript to a valid subtitle format
+      let translatedTranscript = res.text;
+      translatedTranscript = translatedTranscript
+        .replace(/^ +/gm, "")
+        .replace(/\:\s/g, ":");
 
-    // formatting for ru and fr
-    if (languageCode === "ru" || languageCode === "fr") {
-      translatedTranscript = translatedTranscript.replace(
-        /\s\d+\s/g,
-        Math.floor(Math.random() * (999 - 100 + 1) + 100)
-      );
+      // formatting for ru and fr
+      if (languageCode === "ru" || languageCode === "fr") {
+        translatedTranscript = translatedTranscript.replace(
+          /\s\d+\s/g,
+          Math.floor(Math.random() * (999 - 100 + 1) + 100)
+        );
+      }
+
+      // Replace the "->" with "-->"
+      const find = "->";
+      const re = new RegExp(find, "g");
+      const formattedTranscript = translatedTranscript.replace(re, "-->");
+
+      console.log("Subtitle translated successfully ✅");
+      return formattedTranscript;
+    } catch (err) {
+      console.log("Error translating subtitle ❌\n", err);
     }
-
-    // Replace the "->" with "-->"
-    const find = "->";
-    const re = new RegExp(find, "g");
-    const formattedTranscript = translatedTranscript.replace(re, "-->");
-
-    console.log("Subtitle translated successfully ✅");
-    return formattedTranscript;
   }
   console.log(
     `Subtitle translation failed ❌\n${outputLanguage} language code is not found`

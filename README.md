@@ -1,6 +1,7 @@
 # Captio: Video Subtitles in Different Languages
 
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--str7eEYy--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9zeekvbyhflxrmfm0xmv.png)
+<br /><br />
 Twitter bot x Cli program to generate subtitles in different languages.
 
 ## Installation
@@ -11,13 +12,19 @@ cd captio
 npm install
 ```
 
+### API Keys
+
+Once the installation is completed, make sure to rename `.env.example` to `.env` and replace all the Twitter API keys and the Deepgram API key with yours.
+
+> Learn how to retrieve your Twitter API keys [here](https://developer.twitter.com), and Deepgram's [here](https://developers.deepgram.com/) too. 
+
 ## Usage
 
 ### Cli
 
 ```bash
 npm run start:cli video="path/to/video" language='spanish'
-# Remember to replace spanish with preferred language.
+# Replace spanish with preferred language.
 ```
 
 ### Twitter Bot

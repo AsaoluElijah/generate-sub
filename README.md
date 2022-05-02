@@ -3,6 +3,7 @@
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--str7eEYy--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9zeekvbyhflxrmfm0xmv.png)
 <br /><br />
 Twitter bot x Cli program to generate subtitles in different languages.
+> Read article on [Dev.to](https://dev.to/asaoluelijah/captio-video-subtitles-in-different-languages-2g1k)
 
 ## Installation
 
